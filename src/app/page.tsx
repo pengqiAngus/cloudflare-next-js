@@ -3,13 +3,15 @@ export const runtime = "edge";
 
 
 async function getUsers() {
-    const res = await fetch("https://my-first-worker.anguske2027.workers.dev/");
+    
+    try {
+        const res = await fetch("https://my-first-worker.anguske2027.workers.dev/");
+        return res.json();
+    } catch (e) {
+        console.log(e);
+        return 123;
+    }
   
-  if (!res.ok) {
-    throw new Error('Failed to fetch users');
-  }
- 
-  return res.json();
 }
 
 export default async function Home() {
@@ -36,6 +38,7 @@ export default async function Home() {
             .
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>{user}</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
