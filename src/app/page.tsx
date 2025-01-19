@@ -5,7 +5,9 @@ export const runtime = "edge";
 async function getUsers() {
     
     try {
-        const res = await fetch("https://my-first-worker.anguske2027.workers.dev/");
+        const res = await fetch(
+          "https://my-first-worker.anguske2027.workers.dev/"
+        ); 
         return res.json();
     } catch (e) {
         console.log(e);
