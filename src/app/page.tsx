@@ -11,7 +11,8 @@ async function getUsers() {
         return res.json();
     } catch (e) {
         console.log(e);
-        return 123;
+        const error = 'error'
+        return error;
     }
   
 }
